@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0a0c10;
+  --bg-card: #13151c;
+  --bg-card-hover: #1a1d27;
+  --border: #1e2130;
+  --text-primary: #f0f2f7;
+  --text-secondary: #8892a4;
+  --accent: #3b82f6;
+  --price: #22c55e;
+  --badge-new: #3b82f6;
+  --badge-used: #64748b;
+  --badge-cpo: #8b5cf6;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-feature-settings: 'cv02', 'cv11';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbars */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: #1e2130;
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #2a2e42;
+}
+
+/* Range slider — dual handle uses two stacked native ranges */
+input[type='range'].ag-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 24px;
+  z-index: 2;
+}
+input[type='range'].ag-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: auto;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #f0f2f7;
+  border: 2px solid var(--accent);
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  margin-top: 0;
+}
+input[type='range'].ag-range::-moz-range-thumb {
+  pointer-events: auto;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #f0f2f7;
+  border: 2px solid var(--accent);
+  cursor: pointer;
+}
+input[type='range'].ag-range::-webkit-slider-runnable-track {
+  height: 4px;
+  background: transparent;
+}
+
+/* Hide number input arrows */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Card hover */
+.ag-card {
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease,
+    background-color 200ms ease;
+}
+.ag-card:hover {
+  transform: translateY(-2px);
+  background: var(--bg-card-hover);
+  box-shadow: 0 12px 32px -12px rgba(59, 130, 246, 0.25);
+  border-color: #2a2e42;
+}
+
+/* Modal animation */
+.ag-modal-enter {
+  animation: agFade 180ms ease-out;
+}
+@keyframes agFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
